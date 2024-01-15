@@ -1,0 +1,62 @@
+$table-even: rgb(37, 64, 72);
+$table-odd:  rgb(20, 48, 56);
+
+table.moonlit-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  width: 100%;
+  padding: 5px;
+
+  thead {
+    background: map-get($map: $theme-colors, $key: 'lleuad');
+  }
+
+  tbody {
+    tr,
+    tr option {
+      background: $table-odd;
+    }
+    
+    tr:nth-child(even),
+    tr:nth-child(even) option {
+        background: $table-even; 
+    }
+  }
+
+  td, th {
+    padding: 4px 8px;
+  }
+
+
+
+  td, th {
+    border: 1px dashed map-get($map: $theme-colors, $key: 'full-moon-glass-thick');
+  }
+
+  tr {
+    display: grid;
+    height: fit-content;
+
+    td {
+      min-width: 0;
+      word-wrap: break-word;
+      hyphens: auto;
+      display: flex;
+    } 
+  }
+}
+
+#all-projects tr {
+  grid-template-columns: 50px 3fr 3fr 3fr 80px 3fr 2fr;  
+}
+
+#all-tasks tr {
+  grid-template-columns: 50px 3fr 3fr 3fr 2fr 80px 2fr 3fr;
+}
+
+.actions-column {
+  display: flex;
+  justify-content: space-around; 
+  align-items: baseline;
+}

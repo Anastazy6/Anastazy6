@@ -1,0 +1,20 @@
+.task-status-Overdue {
+  color: goldenrod;
+}
+
+.task-status-Failed {
+  color: red;
+}
+
+.task-status-Active {
+  color: cyan;
+}
+
+.task-status-Finished{
+  color: springgreen;
+}
+
+#task-additional-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
