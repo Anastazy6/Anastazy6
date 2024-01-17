@@ -6,12 +6,6 @@ import Header from "../../Shared/Header";
 import { useEditsDispatch } from "../../Contexts/EditsContext";
 
 function ProjectsView ({ projects, renderedProjects, isVisible }) {
-  const dispatchActiveEdits = useEditsDispatch();
-  
-  dispatchActiveEdits({
-    type: 'page_loaded'
-  });
-
   return (
     <section
     style={{ display: isVisible ? '' : 'none' }}

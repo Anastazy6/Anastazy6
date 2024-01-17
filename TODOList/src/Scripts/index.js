@@ -6,7 +6,8 @@ import React, { StrictMode }  from "react";
 import Contents from "./Shared/Contents";
 import Footer   from "./Shared/Footer";
 
-import { ViewProvider } from "./Contexts/ViewContext";
+import { ViewProvider  } from "./Contexts/ViewContext";
+import { EditsProvider } from "./Contexts/EditsContext";
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = createRoot(document.getElementById('react-root'));
@@ -14,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   root.render(
     <StrictMode>
       <ViewProvider>
-        <div id='content'>
-          <Contents />
-          <Footer   />
-        </div>
+        <EditsProvider>
+          <div id='content'>
+            <Contents />
+            <Footer   />
+          </div>
+        </EditsProvider>
       </ViewProvider>
     </StrictMode>
   );

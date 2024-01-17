@@ -4,15 +4,8 @@ import Header      from "../../Shared/Header";
 import TasksHeader from "./TasksHeader";
 import TasksRow    from "./TasksRow";
 
-import { useEditsDispatch } from "../../Contexts/EditsContext";
 
 function TasksView ({ tasks, isVisible, onUpdate, onVisitTask }) {
-  const dispatchActiveEdits = useEditsDispatch();
-
-  dispatchActiveEdits({ 
-    type: 'page_loaded'
-  });
-
   function renderTasks (tasks) {
     if (tasks) {
       return tasks.map(t => {
@@ -28,7 +21,6 @@ function TasksView ({ tasks, isVisible, onUpdate, onVisitTask }) {
     }
     return null;
   }
-
 
   return (
     <section

@@ -11,7 +11,6 @@ import ViewSwitch     from "../Shared/ViewSwitch";
 import * as Storage from "../Storage/projects";
 import { useView, useViewDispatch } from "../Contexts/ViewContext";
 
-import { EditsProvider } from "../Contexts/EditsContext";
 
 function AllProjects () {
   const [projects, setProjects] = useState(Storage.getProjects());
@@ -72,13 +71,11 @@ function AllProjects () {
         isVisible      ={View.newItemFormVisible}
       />
 
-      <EditsProvider>
         <ProjectsView 
           projects        ={projects}
           renderedProjects={renderedProjects}
           isVisible       ={!View.newItemFormVisible}
         />
-      </EditsProvider>
 
       <ViewSwitch 
         onSwitchView ={toggleForm}

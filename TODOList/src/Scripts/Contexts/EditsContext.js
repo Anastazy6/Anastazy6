@@ -35,7 +35,7 @@ export function useEditsDispatch () {
 
 function editsReducer (edits, action) {
   switch(action.type) {
-    case 'page_loaded': {
+    case 'switched_view': {
       return 0;
     }
     case 'opened_edit': {

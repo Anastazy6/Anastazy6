@@ -8,12 +8,15 @@ import SingleTask    from "../Tasks/SingleTask";
 import About         from "../About/About";
 
 import { useView }         from "../Contexts/ViewContext";
-import { useViewDispatch } from "../Contexts/ViewContext";
+import { useViewDispatch  } from "../Contexts/ViewContext";
+import { useEditsDispatch } from "../Contexts/EditsContext";
 
 
 function Contents () {
-  const view         = useView();
-  const dispatchView = useViewDispatch();
+  const view          = useView();
+  const dispatchView  = useViewDispatch();
+  const dispatchEdits = useEditsDispatch();
+
 
   function renderView (view) {
     switch (view.type) {
@@ -41,8 +44,11 @@ function Contents () {
     }
   }
 
-
+  // TODO (optional): refactor, as it does 2 things
   function handleSwitchView (type, itemId=null) {
+    dispatchEdits({
+      type: "switched_view"
+    });
     dispatchView({
       type: "switched_view",
       nextView: {

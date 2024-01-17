@@ -17,8 +17,6 @@ import NewTask              from "./Components/NewTask";
 import TasksView            from "./Components/TasksView";
 import ViewSwitch           from "../Shared/ViewSwitch";
 import { getProject }       from "../Storage/projects";
-import { useEditsDispatch } from "../Contexts/EditsContext";
-import { EditsProvider }    from "../Contexts/EditsContext";
 
 function Tasks () { 
   const project  = useProject();
@@ -73,14 +71,12 @@ function Tasks () {
         isVisible     = { View.newItemFormVisible }
       />
 
-      <EditsProvider>
-        <TasksView 
-          tasks        = { tasks }
-          onUpdate     = { refresh }
-          isVisible    = { !View.newItemFormVisible }
-          onVisitTask  = { handleClickTask }
-        />
-      </EditsProvider>
+      <TasksView 
+        tasks        = { tasks }
+        onUpdate     = { refresh }
+        isVisible    = { !View.newItemFormVisible }
+        onVisitTask  = { handleClickTask }
+      />
 
       <ViewSwitch
         onSwitchView  = { toggleForm }
